@@ -1,0 +1,64 @@
+name: An example misbehaves
+description: A script crashed, printed something wrong, or a documented number does not reproduce.
+title: "[bug] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Examples are supposed to degrade, never crash: if something is missing they should
+        explain what to install and exit cleanly. A traceback is always a bug.
+
+        A number that does not reproduce is also worth reporting — see Known Limits in the
+        README for the ones we already expect to vary.
+
+  - type: input
+    id: example
+    attributes:
+      label: Which script?
+      placeholder: examples/19_hybrid_fusion.py
+    validations:
+      required: true
+
+  - type: textarea
+    id: command
+    attributes:
+      label: The exact command
+      render: shell
+    validations:
+      required: true
+
+  - type: textarea
+    id: output
+    attributes:
+      label: What happened
+      description: Full output or traceback.
+      render: text
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: What you expected instead
+    validations:
+      required: true
+
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: OS, `python --version`, and how you installed things.
+      placeholder: |
+        macOS 14.5, Python 3.12.3
+        pip install -r requirements.txt -r requirements-db.txt -r requirements-local.txt
+        Postgres: docker compose (pgvector/pgvector:pg17)
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: smoke
+    attributes:
+      label: Smoke test
+      options:
+        - label: I ran `python scripts/smoke_test.py --only <NN>` and it reproduces there too.

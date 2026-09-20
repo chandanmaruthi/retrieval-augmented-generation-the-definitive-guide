@@ -1,0 +1,14 @@
+# Core dependencies — enough to run every extraction and chunking example
+# (examples 01-09) with no database and no API key.
+#
+# Optional extras live in separate files so a first-time reader is not asked
+# to download ~2GB of PyTorch before seeing anything run:
+#   requirements-local.txt   local embeddings + reranking (sentence-transformers)
+#   requirements-openai.txt  OpenAI embeddings + generation
+#   requirements-db.txt      Postgres / pgvector
+#
+# Python 3.10+ required.
+
+numpy>=1.26
+pypdf>=4.2
+reportlab>=4.1

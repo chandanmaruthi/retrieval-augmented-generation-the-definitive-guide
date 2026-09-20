@@ -1,0 +1,29 @@
+# Postgres with pgvector -- the database every example in this repository
+# talks to.
+#
+#   docker compose up -d
+#   python scripts/init_db.py
+#
+# Port 5433 on the host, not 5432, so this does not collide with a Postgres
+# you already have running.
+
+services:
+  db:
+    image: pgvector/pgvector:pg17
+    container_name: rag-guide-db
+    environment:
+      POSTGRES_USER: rag
+      POSTGRES_PASSWORD: rag
+      POSTGRES_DB: rag
+    ports:
+      - "5433:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U rag -d rag"]
+      interval: 3s
+      timeout: 3s
+      retries: 20
+
+volumes:
+  pgdata:

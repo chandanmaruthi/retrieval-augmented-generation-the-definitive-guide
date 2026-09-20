@@ -1,0 +1,17 @@
+# OpenAI embeddings and generation. Requires OPENAI_API_KEY.
+#
+# Used by the examples that need a generative step: the LLM-assisted chunking
+# strategies (10-14), query rewriting, agentic/multi-agent loops, synthetic
+# data generation, and LLM-as-judge evaluation.
+#
+# Every script that needs this degrades gracefully when the key is missing —
+# it explains what it would have done instead of raising.
+
+openai>=1.40
+
+# Exact token counts. Optional everywhere: without it, ragkit/tokens.py falls
+# back to a calibrated 1.32 tokens/word approximation, which lands within ~1%
+# of the real count on this corpus. Worth knowing that tiktoken downloads its
+# BPE tables on first use, so it needs network once even though it then runs
+# offline.
+tiktoken>=0.7

@@ -1,0 +1,60 @@
+name: Results on my corpus
+description: You ran the benchmark on your own documents. We want the numbers.
+title: "[results] "
+labels: ["results"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Every number in the README comes from 30 questions about one book of Victorian
+        detective fiction, and the README says so. Whether the ranking survives contact
+        with technical documentation, support tickets or contracts is an open question.
+
+        **A result that contradicts our tables is more interesting than one that confirms
+        them.** Please post it either way.
+
+  - type: textarea
+    id: corpus
+    attributes:
+      label: What is the corpus?
+      description: Roughly — domain, size, how it is structured. No need to share the documents.
+      placeholder: ~2,000 pages of API reference docs, deep heading structure, almost no prose.
+    validations:
+      required: true
+
+  - type: textarea
+    id: output
+    attributes:
+      label: Output of the comparison
+      description: Paste the whole thing — `python examples/15_compare_chunking.py`.
+      render: text
+    validations:
+      required: true
+
+  - type: input
+    id: embedder
+    attributes:
+      label: Embedder
+      placeholder: all-MiniLM-L6-v2 / text-embedding-3-small / something else
+    validations:
+      required: true
+
+  - type: input
+    id: model
+    attributes:
+      label: LLM, if you ran the ★ examples
+      placeholder: gpt-4o-mini
+
+  - type: textarea
+    id: eval
+    attributes:
+      label: How did you build the gold set?
+      description: >
+        The 30 questions here are Holmes-specific, so you needed your own. How many
+        questions, and how did you verify them?
+
+  - type: textarea
+    id: surprise
+    attributes:
+      label: Anything that surprised you?
+      description: Especially any place the ordering differs from the README tables.

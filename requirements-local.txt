@@ -1,0 +1,10 @@
+# Local, offline embedding + reranking models. No API key, no network after
+# the first model download.
+#
+# Heads-up: sentence-transformers pulls PyTorch, which is a ~2GB download.
+# Everything in examples/01-05 runs without this.
+#
+#   all-MiniLM-L6-v2                    384-dim bi-encoder  (~90MB)
+#   cross-encoder/ms-marco-MiniLM-L-6-v2  reranker          (~90MB)
+
+sentence-transformers>=3.0

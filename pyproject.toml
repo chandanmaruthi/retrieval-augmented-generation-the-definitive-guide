@@ -1,0 +1,42 @@
+# This project is a set of scripts to read and run, not a library to install.
+# The file exists so that `requires-python` is machine-readable rather than a
+# note in the README -- on 3.9 the annotations happen to work and something
+# else breaks later, which is worse than failing here.
+
+[project]
+name = "rag-definitive-guide-examples"
+version = "1.0.0"
+description = "Runnable examples for Retrieval-Augmented Generation: The Definitive Guide"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { file = "LICENSE" }
+authors = [{ name = "Chandan Maruthi" }]
+keywords = [
+    "rag",
+    "retrieval-augmented-generation",
+    "pgvector",
+    "embeddings",
+    "chunking",
+    "vector-search",
+]
+classifiers = [
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3.10",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+
+dependencies = [
+    "numpy>=1.26",
+    "pypdf>=4.2",
+    "reportlab>=4.1",
+]
+
+[project.optional-dependencies]
+local = ["sentence-transformers>=3.0"]
+db = ["psycopg[binary]>=3.1", "pgvector>=0.3"]
+openai = ["openai>=1.40", "tiktoken>=0.7"]
+
+[project.urls]
+Book = "https://www.amazon.com/dp/B0HFH2JNMK"
+Source = "https://github.com/chandanmaruthi/retrieval-augmented-generation-the-definitive-guide"

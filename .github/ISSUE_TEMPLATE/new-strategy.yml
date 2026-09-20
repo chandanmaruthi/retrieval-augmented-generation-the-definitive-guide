@@ -1,0 +1,67 @@
+name: Add a strategy
+description: Propose a retrieval or chunking technique that is not covered yet.
+title: "[strategy] "
+labels: ["strategy"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Read [CONTRIBUTING.md](../blob/main/CONTRIBUTING.md) first — especially the house
+        rule: a technique lives in one file in `examples/`, never in `ragkit/`.
+
+        Propose it here before writing it if you want feedback on the shape; go straight
+        to a PR if you would rather just show the code.
+
+  - type: input
+    id: technique
+    attributes:
+      label: The technique
+      placeholder: HyDE — hypothetical document embeddings
+    validations:
+      required: true
+
+  - type: textarea
+    id: what
+    attributes:
+      label: What would the example demonstrate?
+      description: >
+        What does a reader understand after running it that they did not before? The best
+        examples here show a naive version being wrong before showing the right one.
+    validations:
+      required: true
+
+  - type: input
+    id: chapter
+    attributes:
+      label: Which book chapter does it belong to?
+      description: Or "none" if it is beyond the book's scope — that is a fine answer.
+      placeholder: Chapter 11, Multi-Stage Retrieval
+
+  - type: dropdown
+    id: needs
+    attributes:
+      label: What would it require?
+      multiple: true
+      options:
+        - nothing (core requirements only)
+        - a local model (sentence-transformers)
+        - Postgres
+        - an OpenAI API key
+        - a new dependency
+    validations:
+      required: true
+
+  - type: textarea
+    id: measurable
+    attributes:
+      label: What number would it print?
+      description: >
+        Examples here end with a `WHAT TO NOTICE` block tied to measured output. What
+        would yours measure?
+
+  - type: checkboxes
+    id: offer
+    attributes:
+      label: Are you offering to write it?
+      options:
+        - label: Yes, I intend to open a PR.

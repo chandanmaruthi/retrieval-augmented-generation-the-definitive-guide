@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+*.egg-info/
+
+# Environment — .env holds real credentials. The example file is the only one
+# that belongs in the repo; the negation must stay below the wildcard.
+.env
+.env.*
+!.env.example
+
+# Caches produced by the examples
+.cache/
+*.db
+data/*.npz
+data/chunks_*.json
+
+# OS
+.DS_Store

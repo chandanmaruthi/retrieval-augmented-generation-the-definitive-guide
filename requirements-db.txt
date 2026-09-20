@@ -1,0 +1,12 @@
+# Postgres + pgvector access, for examples 16-38.
+#
+# The target is the database in docker-compose.yml. Any Postgres 15+ with
+# pgvector available works — only DATABASE_URL changes.
+#
+# We talk to it with psycopg and raw SQL rather than an ORM, because in these
+# examples the SQL is the lesson: the hybrid-fusion query, the row-level
+# security policies and the recursive graph walk are the content, and a
+# library that hid them would defeat the purpose.
+
+psycopg[binary]>=3.1
+pgvector>=0.3

@@ -1,0 +1,274 @@
+{
+  "questions": [
+    {
+      "id": "q01",
+      "question": "What was hidden behind the sliding panel in Irene Adler's sitting room?",
+      "answer": "The photograph of the King with Irene Adler.",
+      "story": "A Scandal in Bohemia",
+      "evidence": "photograph is in a recess behind a sliding panel",
+      "occurrences_in_story": 1,
+      "occurrences_elsewhere": 0
+    },
+    {
+      "id": "q02",
+      "question": "How did Holmes trick Irene Adler into revealing the photograph's hiding place?",
+      "answer": "He staged a fire alarm, knowing she would run to save it.",
+      "story": "A Scandal in Bohemia",
+      "evidence": "woman thinks that her house is on fire",
+      "occurrences_in_story": 1,
+      "occurrences_elsewhere": 0
+    },
+    {
+      "id": "q03",
+      "question": "Who did Irene Adler marry?",
+      "answer": "Godfrey Norton, a lawyer of the Inner Temple.",
+      "story": "A Scandal in Bohemia",
+      "evidence": "Godfrey Norton",
+      "occurrences_in_story": 5,
+      "occurrences_elsewhere": 0
+    },
+    {
+      "id": "q04",
+      "question": "What does Watson say Holmes always calls Irene Adler?",
+      "answer": "The woman.",
+      "story": "A Scandal in Bohemia",
+      "evidence": "she is always the woman",
+      "occurrences_in_story": 1,
+      "occurrences_elsewhere": 0
+    },
+    {
+      "id": "q05",
+      "question": "What work was Jabez Wilson paid to do for the Red-Headed League?",
+      "answer": "Copying out the Encyclopaedia Britannica by hand.",
+      "story": "The Red-Headed League",
+      "evidence": "copy out the",
+      "occurrences_in_story": 1,
+      "occurrences_elsewhere": 0
+    },
+    {
+      "id": "q06",
+      "question": "Why was the Red-Headed League created?",
+      "answer": "To get Wilson out of his shop for hours each day so a tunnel could be dug.",
+      "story": "The Red-Headed League",
+      "evidence": "out of the way for a number of hours",
+      "occurrences_in_story": 1,
+      "occurrences_elsewhere": 0
+    },
+    {
+      "id": "q07",
+      "question": "What were the thieves tunnelling towards?",
+      "answer": "A bank vault holding French gold.",
+      "story": "The Red-Headed League",
+      "evidence": "French gold",
+      "occurrences_in_story": 2,
+      "occurrences_elsewhere": 0
+    },
+    {
+      "id": "q08",
+      "question": "Who was the criminal behind the Red-Headed League?",
+      "answer": "John Clay.",
+      "story": "The Red-Headed League",
+      "evidence": "John Clay",
+      "occurrences_in_story": 6,
+      "occurrences_elsewhere": 0
+    },
+    {
+      "id": "q09",
+      "question": "Who was Hosmer Angel really?",
+      "answer": "Mary Sutherland's stepfather, James Windibank, in disguise.",
+      "story": "A Case of Identity",
+      "evidence": "James Windibank",
+      "occurrences_in_story": 5,
+      "occurrences_elsewhere": 0
+    },
+    {
+      "id": "q10",
+      "question": "Why did Mary Sutherland's stepfather invent a suitor for her?",
+      "answer": "To stop her marrying, so her income stayed in the household.",
+      "story": "A Case of Identity",
+      "evidence": "hundred a year",
+      "occurrences_in_story": 3,
+      "occurrences_elsewhere": 1
+    },
+    {
+      "id": "q11",
+      "question": "What did the murdered man say as he died at Boscombe Pool?",
+      "answer": "He made a dying reference to a rat.",
+      "story": "The Boscombe Valley Mystery",
+      "evidence": "dying reference to a rat",
+      "occurrences_in_story": 3,
+      "occurrences_elsewhere": 0
+    },
+    {
+      "id": "q12",
+      "question": "Who actually killed Charles McCarthy?",
+      "answer": "John Turner, whom McCarthy had been blackmailing.",
+      "story": "The Boscombe Valley Mystery",
+      "evidence": "John Turner",
+      "occurrences_in_story": 2,
+      "occurrences_elsewhere": 0
+    },
+    {
+      "id": "q13",
+      "question": "What did the letters K. K. K. stand for?",
+      "answer": "The Ku Klux Klan.",
+      "story": "The Five Orange Pips",
+      "evidence": "the Ku Klux Klan",
+      "occurrences_in_story": 1,
+      "occurrences_elsewhere": 0
+    },
+    {
+      "id": "q14",
+      "question": "What was sent to the victims before each death?",
+      "answer": "Five dried orange pips in an envelope.",
+      "story": "The Five Orange Pips",
+      "evidence": "five dried orange pips",
+      "occurrences_in_story": 1,
+      "occurrences_elsewhere": 0
+    },
+    {
+      "id": "q15",
+      "question": "What had become of Neville St. Clair?",
+      "answer": "He was living a second life as the beggar Hugh Boone.",
+      "story": "The Man with the Twisted Lip",
+      "evidence": "Hugh Boone",
+      "occurrences_in_story": 4,
+      "occurrences_elsewhere": 0
+    },
+    {
+      "id": "q16",
+      "question": "How did Neville St. Clair make his money?",
+      "answer": "By begging in the City, which paid far better than his profession.",
+      "story": "The Man with the Twisted Lip",
+      "evidence": "begging",
+      "occurrences_in_story": 4,
+      "occurrences_elsewhere": 0
+    },
+    {
+      "id": "q17",
+      "question": "Where was the blue carbuncle found?",
+      "answer": "In the crop of a goose.",
+      "story": "The Adventure of the Blue Carbuncle",
+      "evidence": "crop of a goose in Tottenham Court Road",
+      "occurrences_in_story": 1,
+      "occurrences_elsewhere": 0
+    },
+    {
+      "id": "q18",
+      "question": "Who stole the blue carbuncle?",
+      "answer": "James Ryder, the hotel's upper-attendant.",
+      "story": "The Adventure of the Blue Carbuncle",
+      "evidence": "James Ryder, upper-attendant",
+      "occurrences_in_story": 1,
+      "occurrences_elsewhere": 0
+    },
+    {
+      "id": "q19",
+      "question": "What was the speckled band?",
+      "answer": "A swamp adder.",
+      "story": "The Adventure of the Speckled Band",
+      "evidence": "It is a swamp adder",
+      "occurrences_in_story": 1,
+      "occurrences_elsewhere": 0
+    },
+    {
+      "id": "q20",
+      "question": "What kind of snake killed Dr. Roylott?",
+      "answer": "A swamp adder, the deadliest snake in India.",
+      "story": "The Adventure of the Speckled Band",
+      "evidence": "the deadliest snake in India",
+      "occurrences_in_story": 1,
+      "occurrences_elsewhere": 0
+    },
+    {
+      "id": "q21",
+      "question": "What did Dr. Roylott stand to lose if his stepdaughters married?",
+      "answer": "Each daughter could claim an income on marriage.",
+      "story": "The Adventure of the Speckled Band",
+      "evidence": "daughter can claim an income",
+      "occurrences_in_story": 1,
+      "occurrences_elsewhere": 0
+    },
+    {
+      "id": "q22",
+      "question": "What machine was Victor Hatherley hired to examine?",
+      "answer": "A hydraulic press.",
+      "story": "The Adventure of the Engineer’s Thumb",
+      "evidence": "hydraulic press",
+      "occurrences_in_story": 3,
+      "occurrences_elsewhere": 0
+    },
+    {
+      "id": "q23",
+      "question": "What was the hydraulic press really used for?",
+      "answer": "Making counterfeit coins.",
+      "story": "The Adventure of the Engineer’s Thumb",
+      "evidence": "coiners",
+      "occurrences_in_story": 1,
+      "occurrences_elsewhere": 0
+    },
+    {
+      "id": "q24",
+      "question": "Who was the American gentleman staying at the hotel in the Noble Bachelor?",
+      "answer": "Francis H. Moulton.",
+      "story": "The Adventure of the Noble Bachelor",
+      "evidence": "Francis H. Moulton",
+      "occurrences_in_story": 1,
+      "occurrences_elsewhere": 0
+    },
+    {
+      "id": "q25",
+      "question": "Who did Lord St. Simon marry?",
+      "answer": "Hatty Doran, an American heiress.",
+      "story": "The Adventure of the Noble Bachelor",
+      "evidence": "Hatty Doran",
+      "occurrences_in_story": 3,
+      "occurrences_elsewhere": 0
+    },
+    {
+      "id": "q26",
+      "question": "Who took the beryl coronet?",
+      "answer": "Sir George Burnwell.",
+      "story": "The Adventure of the Beryl Coronet",
+      "evidence": "Sir George Burnwell",
+      "occurrences_in_story": 7,
+      "occurrences_elsewhere": 0
+    },
+    {
+      "id": "q27",
+      "question": "Who was the niece living in the Holder household?",
+      "answer": "Mary Holder.",
+      "story": "The Adventure of the Beryl Coronet",
+      "evidence": "Mary Holder",
+      "occurrences_in_story": 1,
+      "occurrences_elsewhere": 0
+    },
+    {
+      "id": "q28",
+      "question": "Why was Violet Hunter asked to cut her hair?",
+      "answer": "So she could impersonate Alice Rucastle.",
+      "story": "The Adventure of the Copper Beeches",
+      "evidence": "cut your hair",
+      "occurrences_in_story": 3,
+      "occurrences_elsewhere": 0
+    },
+    {
+      "id": "q29",
+      "question": "Who was imprisoned at the Copper Beeches?",
+      "answer": "Alice Rucastle, by her father.",
+      "story": "The Adventure of the Copper Beeches",
+      "evidence": "Alice Rucastle",
+      "occurrences_in_story": 1,
+      "occurrences_elsewhere": 0
+    },
+    {
+      "id": "q30",
+      "question": "What animal guarded the grounds at the Copper Beeches?",
+      "answer": "A mastiff, loosed at night.",
+      "story": "The Adventure of the Copper Beeches",
+      "evidence": "mastiff",
+      "occurrences_in_story": 2,
+      "occurrences_elsewhere": 0
+    }
+  ]
+}

@@ -1,0 +1,89 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  # What a reader sees after `pip install -r requirements.txt` and nothing else:
+  # the database-free examples run, the rest explain what they need and exit 0.
+  # Skips are passes here, because declining cleanly is the behaviour under test.
+  free:
+    name: core deps only (py${{ matrix.python-version }})
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.10", "3.12"]
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: pip
+
+      - run: pip install -r requirements.txt
+
+      - name: Every example either runs or declines cleanly
+        run: python scripts/smoke_test.py --no-db
+
+  # The real one: Postgres present, LLM stubbed, so all 38 must actually run.
+  # --fail-on-skip is what makes this job mean something -- without it a run
+  # where everything quietly declined would still be green.
+  full:
+    name: all 38 against pgvector
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: pgvector/pgvector:pg17
+        env:
+          POSTGRES_USER: rag
+          POSTGRES_PASSWORD: rag
+          POSTGRES_DB: rag
+        ports:
+          - 5433:5432
+        options: >-
+          --health-cmd "pg_isready -U rag"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 10
+    env:
+      DATABASE_URL: postgresql://rag:rag@localhost:5433/rag
+      EMBEDDING_PROVIDER: local
+      RAGKIT_STUB_LLM: "1"
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install
+        run: |
+          pip install -r requirements.txt
+          pip install -r requirements-db.txt
+          pip install -r requirements-local.txt
+
+      # ~90MB of sentence-transformers weights, downloaded once per cache key.
+      - name: Cache the embedding model
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/huggingface
+          key: hf-all-MiniLM-L6-v2
+
+      - name: Schema, indexes, row-level security
+        run: python scripts/init_db.py
+
+      - name: Chunk, embed, load
+        run: python scripts/index_corpus.py
+
+      - name: All 38, no skips allowed
+        run: python scripts/smoke_test.py --stub-llm --fail-on-skip

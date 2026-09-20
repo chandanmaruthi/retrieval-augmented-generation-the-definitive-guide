@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: The book
+    url: https://www.amazon.com/dp/B0HFH2JNMK
+    about: "Retrieval-Augmented Generation: The Definitive Guide — the reasoning behind these examples."
+  - name: How to contribute
+    url: https://github.com/chandanmaruthi/retrieval-augmented-generation-the-definitive-guide/blob/main/CONTRIBUTING.md
+    about: The conventions every example follows, and the one house rule.
