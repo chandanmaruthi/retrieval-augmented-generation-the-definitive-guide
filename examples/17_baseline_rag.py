@@ -1,8 +1,7 @@
 #!/usr/bin/env python3
 """
 17. Baseline RAG Pipeline
-Book: Chapter 7, Baseline RAG Pipeline
-
+Book: Chapter 6, Baseline RAG Pipeline
 WHAT THIS SHOWS: The whole pipeline, end to end, with nothing clever in it.
 
     query -> embed -> nearest neighbours -> assemble context -> generate
@@ -99,6 +98,7 @@ def assemble_context(hits, budget: int = 2000) -> tuple[str, list]:
     for hit in hits:
         text = hit.chunk.context_text
         key = text[:200]
+        # --- dedup, budget, citation: step 3 -- book:retrieval-baseline
         if key in seen:
             continue
         cost = tokens.count_tokens(text)
@@ -107,6 +107,7 @@ def assemble_context(hits, budget: int = 2000) -> tuple[str, list]:
         seen.add(key)
         used.append(hit)
         parts.append(f"[{len(used)}] ({hit.chunk.location}) {text}")
+        # ------------------------------------------------------- /book
         spent += cost
 
     return "\n\n".join(parts), used
@@ -121,7 +122,7 @@ def main() -> int:
 
     display.banner(
         "17. Baseline RAG Pipeline",
-        "Chapter 7, Baseline RAG Pipeline",
+        "Chapter 6, Baseline RAG Pipeline",
         "Embed, retrieve the nearest k, assemble a context, generate. The "
         "simplest thing that works, and the baseline everything else is "
         "measured against.",

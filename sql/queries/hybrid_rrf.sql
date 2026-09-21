@@ -50,10 +50,12 @@ txt AS (
     FROM   txt_candidates
 ),
 
+-- --- both arms, keyed by rank rather than score ------------ book:retrieval-rrf
 fused AS (
     SELECT chunk_id, v.vec_score, t.ts_score, v.vec_rank, t.txt_rank
     FROM   vec v FULL OUTER JOIN txt t USING (chunk_id)
 )
+-- ------------------------------------------------------------------ /book
 
 SELECT c.id AS chunk_id,
        c.story,
@@ -73,8 +75,10 @@ SELECT c.id AS chunk_id,
        -- A document missing from an arm contributes exactly 0 -- that is
        -- canonical RRF. COALESCE is what implements "missing", since the
        -- FULL OUTER JOIN leaves the absent side's rank NULL.
+-- --- ...continued ------------------------------------------ book:retrieval-rrf
        COALESCE(%(w_vec)s / (%(rrf_k)s + f.vec_rank), 0.0) +
        COALESCE(%(w_txt)s / (%(rrf_k)s + f.txt_rank), 0.0) AS score
+-- ------------------------------------------------------------------ /book
 FROM   fused f
 JOIN   chunks c ON c.id = f.chunk_id
 ORDER  BY score DESC, f.chunk_id

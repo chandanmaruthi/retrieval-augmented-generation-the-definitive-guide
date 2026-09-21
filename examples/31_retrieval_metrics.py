@@ -2,7 +2,6 @@
 """
 31. Retrieval Metrics
 Book: Chapter 19, Evaluation Metrics
-
 WHAT THIS SHOWS: Recall@k, Precision@k, MRR and NDCG, implemented from their
 definitions and run over the thirty gold questions.
 

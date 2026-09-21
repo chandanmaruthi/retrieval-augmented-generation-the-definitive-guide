@@ -1,8 +1,7 @@
 #!/usr/bin/env python3
 """
 03. Sentence-Boundary Chunking
-Book: Chapter 6, Chunking Strategies -- section 3.2
-
+Book: Chapter 5, Chunking Strategies -- section 3.2
 WHAT THIS SHOWS: The smallest possible improvement on fixed-length chunking,
 and one of the highest-value. Accumulate whole sentences until adding the next
 one would exceed the token budget, then start a new chunk.
@@ -118,9 +117,11 @@ def chunk_sentences(
             # Get this backwards -- append first, then check -- and every
             # chunk overshoots its budget by one sentence, which on a long
             # sentence means the tail is silently truncated by the embedder.
+            # --- close before overflow, never mid-sentence -- book:chunk-sentence
             if budget + cost > max_tokens and buffer:
                 chunks.append(emit(buffer, index))
                 index += 1
+            # ----------------------------------------------------------- /book
 
                 # ---- THE OVERLAP RULE ----------------------------------
                 # Start the next chunk holding the last sentence(s) of this
@@ -151,7 +152,7 @@ def main() -> int:
 
     display.banner(
         "03. Sentence-Boundary Chunking",
-        "Chapter 6, Chunking Strategies -- section 3.2",
+        "Chapter 5, Chunking Strategies -- section 3.2",
         f"Accumulate whole sentences up to {args.max_tokens} tokens, never "
         "cutting one in half.",
     )

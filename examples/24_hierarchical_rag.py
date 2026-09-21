@@ -1,8 +1,7 @@
 #!/usr/bin/env python3
 """
 24. Hierarchical RAG (coarse-to-fine retrieval)
-Book: Chapter 13, Hierarchical RAG
-
+Book: Chapter 12, Hierarchical RAG
 WHAT THIS SHOWS: Retrieve in levels instead of searching everything at once.
 
     Topic  ->  Document  ->  Section  ->  Passage
@@ -70,7 +69,7 @@ def main() -> int:
 
     display.banner(
         "24. Hierarchical RAG",
-        "Chapter 13, Hierarchical RAG",
+        "Chapter 12, Hierarchical RAG",
         f"Narrow to {args.stories} stories first, then search only inside "
         "them. Coarse to fine, using the document's own structure.",
     )
@@ -149,7 +148,9 @@ def main() -> int:
     )
     print(f"\n  {level1_ms:.1f} ms to rank all {len(rows)} stories.")
 
+    # --- level 1 narrows the search space -- book:retrieval-hierarchical
     chosen = [r[0] for r in rows[: args.stories]]
+    # ------------------------------------------------------------- /book
     print(f"\n  Keeping: {', '.join(display.truncate(s, 34) for s in chosen)}")
 
     # --- level 2: within those stories ------------------------------------

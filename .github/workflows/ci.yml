@@ -34,6 +34,19 @@ jobs:
       - name: Every example either runs or declines cleanly
         run: python scripts/smoke_test.py --no-db
 
+  # Some lines here are printed verbatim in the book. This fails the PR that
+  # changes them, which is the only moment anyone can still react cheaply.
+  # No dependencies, about a second.
+  book:
+    name: quoted-in-the-book regions
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python scripts/check_book_regions.py
+
   # The real one: Postgres present, LLM stubbed, so all 38 must actually run.
   # --fail-on-skip is what makes this job mean something -- without it a run
   # where everything quietly declined would still be green.

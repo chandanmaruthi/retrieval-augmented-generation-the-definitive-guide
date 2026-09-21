@@ -2,7 +2,6 @@
 """
 35. Privacy and Access Control
 Book: Chapter 22, Privacy & Compliance in RAG
-
 WHAT THIS SHOWS: Access control enforced inside the index, not after it.
 
 The book is blunt about why:

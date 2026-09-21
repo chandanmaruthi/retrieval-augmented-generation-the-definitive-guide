@@ -2,7 +2,6 @@
 """
 26. Knowledge Graph Integration
 Book: Chapter 18, Knowledge Graph Integration
-
 WHAT THIS SHOWS: Typed triples instead of co-occurrence, and the three ways
 the book names for combining a graph with a vector index.
 

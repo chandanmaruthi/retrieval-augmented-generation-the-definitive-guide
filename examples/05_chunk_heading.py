@@ -1,8 +1,7 @@
 #!/usr/bin/env python3
 """
 05. Heading-Boundary Chunking
-Book: Chapter 6, Chunking Strategies -- section 3.4
-
+Book: Chapter 5, Chunking Strategies -- section 3.4
 WHAT THIS SHOWS: Chunk on the document's own outline. Never let a chunk cross
 a heading, and keep the heading path as metadata so every chunk knows where it
 came from.
@@ -67,8 +66,10 @@ def chunk_by_heading(book: Book, max_tokens: int = DEFAULT_MAX_TOKENS) -> list[C
     """
     chunks: list[Chunk] = []
 
+    # --- one chunk never crosses a heading ---------------- book:chunk-heading
     for story in book.stories:
         for section in story.sections:
+    # ------------------------------------------------------------- /book
             # The heading path, most general first -- the same shape you would
             # build from nested <h1>/<h2>/<h3> tags or a DOCX outline level.
             path = [story.title]
@@ -82,9 +83,12 @@ def chunk_by_heading(book: Book, max_tokens: int = DEFAULT_MAX_TOKENS) -> list[C
             # declared inside the section loop, so crossing a heading is
             # not forbidden by a check -- it is structurally impossible.
             # =========================================================
+            # --- ...continued: the buffer lives INSIDE the -- book:chunk-heading
+            # section loop, so a chunk cannot span two sections
             index = 0
             buffer: list[str] = []
             budget = 0
+            # ----------------------------------------------------------- /book
 
             def emit(body: list[str], idx: int) -> Chunk:
                 return Chunk(
@@ -146,7 +150,7 @@ def main() -> int:
 
     display.banner(
         "05. Heading-Boundary Chunking",
-        "Chapter 6, Chunking Strategies -- section 3.4",
+        "Chapter 5, Chunking Strategies -- section 3.4",
         "Respect the document outline. No chunk crosses a heading, and every "
         "chunk carries the heading path it came from.",
     )

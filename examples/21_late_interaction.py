@@ -1,8 +1,7 @@
 #!/usr/bin/env python3
 """
 21. Late Interaction (ColBERT-style max-sim)
-Book: Chapter 11, Multi-Stage Retrieval
-
+Book: Chapter 10, Multi-Stage Retrieval
 WHAT THIS SHOWS: The middle ground between a bi-encoder and a cross-encoder.
 
     bi-encoder      one vector per document. Fast, precomputable, lossy --
@@ -130,7 +129,7 @@ def main() -> int:
 
     display.banner(
         "21. Late Interaction (ColBERT-style MaxSim)",
-        "Chapter 11, Multi-Stage Retrieval",
+        "Chapter 10, Multi-Stage Retrieval",
         "One vector per token instead of one per document, compared at query "
         "time with MaxSim.",
     )

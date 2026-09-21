@@ -1,8 +1,7 @@
 #!/usr/bin/env python3
 """
 19. Hybrid Retrieval: Linear Weighting vs Reciprocal Rank Fusion
-Book: Chapter 10, Hybrid RAG
-
+Book: Chapter 9, Hybrid RAG
 WHAT THIS SHOWS: How to actually combine a dense and a sparse retriever, and
 why the obvious way is wrong.
 
@@ -116,7 +115,7 @@ def main() -> int:
 
     display.banner(
         "19. Hybrid Retrieval: Linear vs RRF",
-        "Chapter 10, Hybrid RAG",
+        "Chapter 9, Hybrid RAG",
         "Fusing a dense and a sparse retriever, and why adding their scores "
         "together does not work.",
     )

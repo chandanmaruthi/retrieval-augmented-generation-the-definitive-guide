@@ -1,8 +1,7 @@
 #!/usr/bin/env python3
 """
 07. Sentence-Window Context Chunking
-Book: Chapter 6, Chunking Strategies -- section 3.6
-
+Book: Chapter 5, Chunking Strategies -- section 3.6
 WHAT THIS SHOWS: Decouple what you *search* from what you *read*. Index one
 sentence at a time, so the embedding is about exactly one thing. Then, when a
 sentence is retrieved, expand it to the K sentences either side before handing
@@ -76,9 +75,11 @@ def chunk_sentence_window(book: Book, window: int = DEFAULT_WINDOW) -> list[Chun
                 sentences.extend(split_sentences(paragraph))
 
             for position, sentence in enumerate(sentences):
+                # --- the window around the sentence ---- book:chunk-sentence-window
                 start = max(0, position - window)
                 end = min(len(sentences), position + window + 1)
                 context = " ".join(sentences[start:end])
+                # ----------------------------------------------------------- /book
 
                 # ---- THE KEY LINES -------------------------------------
                 # One chunk, two texts. retrieval_text is what gets
@@ -91,10 +92,12 @@ def chunk_sentence_window(book: Book, window: int = DEFAULT_WINDOW) -> list[Chun
                         story=story.title,
                         section=section.number,
                         index=position,
+                        # --- ...continued ------------- book:chunk-sentence-window
                         # Embed the sentence alone...
                         retrieval_text=sentence,
                         # ...but generate from the window around it.
                         parent_text=context,
+                        # ------------------------------------------------- /book
                         meta={
                             "window": window,
                             "window_start": start,
@@ -114,7 +117,7 @@ def main() -> int:
 
     display.banner(
         "07. Sentence-Window Context Chunking",
-        "Chapter 6, Chunking Strategies -- section 3.6",
+        "Chapter 5, Chunking Strategies -- section 3.6",
         f"Index single sentences for precision; expand to +/-{args.window} "
         "sentences for the answer.",
     )

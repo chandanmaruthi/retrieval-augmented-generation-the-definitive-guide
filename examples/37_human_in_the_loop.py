@@ -2,7 +2,6 @@
 """
 37. Human-in-the-Loop RAG
 Book: Chapter 24, Human-in-the-Loop RAG Systems
-
 WHAT THIS SHOWS: How to spend a limited amount of human attention well.
 
 Expert review is the most accurate signal available and the most expensive.

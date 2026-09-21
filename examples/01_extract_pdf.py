@@ -1,8 +1,7 @@
 #!/usr/bin/env python3
 """
 01. Data Extraction
-Book: Chapter 5, Data Extraction
-
+Book: Chapter 4, Data Extraction
 WHAT THIS SHOWS: Everything that has to happen between "we have a PDF" and
 "we have clean text with structure and metadata". Page numbers have to go,
 wrapped lines have to be rejoined into paragraphs, paragraphs broken across a
@@ -324,7 +323,7 @@ def deduplicate(records: list[dict]) -> tuple[list[dict], int]:
 def main() -> int:
     display.banner(
         "01. Data Extraction",
-        "Chapter 5, Data Extraction",
+        "Chapter 4, Data Extraction",
         "Turning a 189-page PDF into clean, structured, attributed text -- and "
         "measuring how much of the original survived the round trip.",
     )

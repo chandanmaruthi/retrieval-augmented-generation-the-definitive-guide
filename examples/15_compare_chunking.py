@@ -1,8 +1,7 @@
 #!/usr/bin/env python3
 """
 15. Comparing the Chunking Strategies
-Book: Chapter 6, Chunking Strategies
-
+Book: Chapter 5, Chunking Strategies
 WHAT THIS SHOWS: All of the book's chunking strategies, scored against the
 same thirty gold questions, on the same corpus, with the same embedder.
 
@@ -255,7 +254,7 @@ def main() -> int:
 
     display.banner(
         "15. Comparing the Chunking Strategies",
-        "Chapter 6, Chunking Strategies",
+        "Chapter 5, Chunking Strategies",
         f"Every strategy, the same 30 gold questions, the same embedder. "
         f"Scored on whether the text delivered at top-{args.k} contains the "
         "answer.",

@@ -1,4 +1,4 @@
-.PHONY: help setup setup-core db index smoke smoke-free compare clean-db clean-cache
+.PHONY: help setup setup-core db index smoke smoke-free compare book-check clean-db clean-cache
 
 VENV   := .venv
 PY     := $(VENV)/bin/python
@@ -12,6 +12,7 @@ help:
 	@echo "  make smoke       run all 38 examples and report"
 	@echo "  make smoke-free  run them as a reader with no database would"
 	@echo "  make compare     the chunking benchmark behind the README tables"
+	@echo "  make book-check  verify the code quoted in the book is unchanged"
 	@echo "  make clean-db    stop Postgres and delete its volume"
 	@echo "  make clean-cache drop the embedding and LLM response caches"
 
@@ -40,6 +41,10 @@ smoke-free:
 
 compare:
 	$(PY) examples/15_compare_chunking.py
+
+# Stdlib only, so it runs on any python — no venv required.
+book-check:
+	python3 scripts/check_book_regions.py
 
 clean-db:
 	docker compose down -v

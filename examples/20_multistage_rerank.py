@@ -1,8 +1,7 @@
 #!/usr/bin/env python3
 """
 20. Multi-Stage Retrieval
-Book: Chapter 11, Multi-Stage Retrieval
-
+Book: Chapter 10, Multi-Stage Retrieval
 WHAT THIS SHOWS: Cast wide, then narrow.
 
     stage 1  cheap retrieval, high recall     -> N candidates (N = 100..1000)
@@ -128,7 +127,7 @@ def main() -> int:
 
     display.banner(
         "20. Multi-Stage Retrieval",
-        "Chapter 11, Multi-Stage Retrieval",
+        "Chapter 10, Multi-Stage Retrieval",
         f"Retrieve {args.fanout} candidates cheaply, then rerank them "
         f"expensively down to {args.k}.",
     )
@@ -184,9 +183,11 @@ def main() -> int:
 
     if reranker is not None:
         print(f"  model: {CROSS_ENCODER}")
+        # --- query and passage read together ------- book:retrieval-rerank
         pairs = [(args.question, h.chunk.text) for h in candidates]
         started = time.perf_counter()
         scores = reranker.predict(pairs, show_progress_bar=False)
+        # ------------------------------------------------------------- /book
         stage2_ms = (time.perf_counter() - started) * 1000
         display.kv("pairs scored", len(pairs))
         display.kv("time", f"{stage2_ms:.1f} ms")

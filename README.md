@@ -1,18 +1,29 @@
 <div align="center">
 
-<img src="docs/book-cover.jpg" alt="Retrieval-Augmented Generation: The Definitive Guide" width="200">
+<a href="https://www.amazon.com/dp/B0HFH2JNMK">
+  <img src="docs/book-cover.jpg" width="190" alt="Retrieval-Augmented Generation: The Definitive Guide">
+</a>
 
 # RAG: The Definitive Guide — Runnable Examples
 
+### The official code companion to the book<br>*Retrieval-Augmented Generation: The Definitive Guide*
+
 **Every retrieval technique in the book, as a script you can run.**
+
+[![Get the book on Amazon](https://img.shields.io/badge/Get%20the%20book-Amazon-black?style=for-the-badge&logo=amazon&logoColor=white)](https://www.amazon.com/dp/B0HFH2JNMK)
+
+<sub>Revised and Expanded **Third Edition** &nbsp;·&nbsp; chapter numbers on this page follow it</sub>
+
+<br>
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-black.svg)](LICENSE)
 [![Python 3.10+](https://img.shields.io/badge/Python-3.10%2B-black.svg)](https://www.python.org/downloads/)
 [![CI](https://github.com/chandanmaruthi/retrieval-augmented-generation-the-definitive-guide/actions/workflows/ci.yml/badge.svg)](https://github.com/chandanmaruthi/retrieval-augmented-generation-the-definitive-guide/actions/workflows/ci.yml)
-[![Book on Amazon](https://img.shields.io/badge/Book-Amazon-black.svg)](https://www.amazon.com/dp/B0HFH2JNMK)
 [![Stars](https://img.shields.io/github/stars/chandanmaruthi/retrieval-augmented-generation-the-definitive-guide?style=flat&color=black)](https://github.com/chandanmaruthi/retrieval-augmented-generation-the-definitive-guide/stargazers)
 
 </div>
+
+---
 
 Thirty-eight examples over one real corpus — **The Adventures of Sherlock Holmes**,
 104,000 words, shipped as a 189-page PDF — so that the strategies are comparable to each
@@ -58,8 +69,8 @@ Go straight to your chapter.
 
 **[→ Index by book chapter](#index-by-book-chapter)**
 
-The script numbers do **not** match the chapter numbers — Chapter 10 is example 19,
-Chapter 22 is example 35 — so use the table rather than guessing.
+Script numbers do **not** match chapter numbers, and never did — the scripts are ordered
+by what they build on. Use the table rather than guessing.
 
 Then run [Quickstart](#quickstart) once and come back.
 
@@ -173,10 +184,11 @@ host.
 
 ### [Retrieval-Augmented Generation: The Definitive Guide](https://www.amazon.com/dp/B0HFH2JNMK)
 
-**Chandan Maruthi** · Twig AI · Second edition · [Read it on Amazon →](https://www.amazon.com/dp/B0HFH2JNMK)
+**Chandan Maruthi** · Twig AI · Revised and Expanded Third Edition ·
+[Read it on Amazon →](https://www.amazon.com/dp/B0HFH2JNMK)
 
-Twenty-six chapters in twelve parts, written from two years of building enterprise RAG
-systems in production. From the preface:
+Written from two years of building enterprise RAG systems in production. From the
+preface:
 
 > Over the past two years, the Twig team has been building enterprise-grade RAG systems
 > for some of the most demanding production environments. Through this journey, we
@@ -192,22 +204,25 @@ architectures earns its cost, and the production concerns — privacy, complianc
 monitoring, human-in-the-loop — that a benchmark script cannot express.
 
 <details>
-<summary><b>The twelve parts</b></summary>
+<summary><b>Every part and chapter</b></summary>
+
+<!-- book-parts:begin -->
+**26 chapters in 11 parts.**
 
 | Part | Chapters |
 |---|---|
-| **I — About** | 1 About the Author |
-| **II — RAG and the Reference Architecture** | 2 The Evolution of RAG · 3 Foundations of RAG Systems · 4 Reference Architecture |
-| **III — Data Extraction** | 5 Data Extraction |
-| **IV — Chunking** | 6 Chunking Strategies |
-| **V — RAG Strategies** | 7 Baseline RAG Pipeline · 8 Context-Aware RAG · 9 Dynamic RAG · 10 Hybrid RAG · 11 Multi-Stage Retrieval · 12 Graph-Based RAG · 13 Hierarchical RAG · 14 Agentic RAG · 15 Multi-Agent RAG Systems · 16 Streaming RAG |
-| **VI — Memory and Content Management** | 17 Memory-Augmented RAG · 18 Knowledge Graph Integration |
-| **VII — Evaluation** | 19 Evaluation Metrics · 20 Synthetic Data Generation |
-| **VIII — Fine-Tuning** | 21 Domain-Specific Fine-Tuning |
-| **IX — Security** | 22 Privacy & Compliance in RAG |
-| **X — Production** | 23 Real-Time Evaluation & Monitoring · 24 Human-in-the-Loop RAG |
-| **XI — Twig RAG Strategies** | 25 RAG Strategies in Twig |
-| **XII — Conclusion** | 26 Conclusion & Future Directions |
+| **I — RAG and the Reference Architecture** | 1 The Evolution of RAG · 2 Foundations of RAG Systems · 3 Reference Architecture |
+| **II — Data Extraction** | 4 Data Extraction |
+| **III — Chunking** | 5 Chunking Strategies |
+| **IV — RAG Strategies** | 6 Baseline RAG Pipeline · 7 Context-Aware RAG · 8 Dynamic RAG · 9 Hybrid RAG · 10 Multi-Stage Retrieval · 11 Graph-Based RAG · 12 Hierarchical RAG · 13 Agentic RAG · 14 Multi-Agent RAG Systems · 15 Streaming RAG · 16 Choosing a Retrieval Architecture |
+| **V — Memory and Content Management** | 17 Memory-Augmented RAG · 18 Knowledge Graph Integration |
+| **VI — Evaluation** | 19 Evaluation Metrics · 20 Synthetic Data Generation |
+| **VII — Fine-Tuning** | 21 Domain-Specific Fine-Tuning |
+| **VIII — Security** | 22 Privacy & Compliance in RAG |
+| **IX — Production** | 23 Real-Time Evaluation & Monitoring · 24 Human-in-the-Loop RAG |
+| **X — Twig RAG Strategies** | 25 RAG Strategies in Twig |
+| **XI — Conclusion** | 26 Conclusion & Future Directions |
+<!-- book-parts:end -->
 
 </details>
 
@@ -224,29 +239,31 @@ Reading a chapter? This is your lookup.
 
 **Legend:** ○ nothing · ◐ local model (`requirements-local.txt`) · ▣ Postgres · ★ `OPENAI_API_KEY`
 
+<!-- book-index:begin -->
 | Book chapter | Run this | Needs |
 |---|---|---|
-| **4** — Reference Architecture | [`16_index_pgvector.py`](examples/16_index_pgvector.py) · [`38_reference_architecture.py`](examples/38_reference_architecture.py) | ▣ |
-| **5** — Data Extraction | [`01_extract_pdf.py`](examples/01_extract_pdf.py) | ○ |
-| **6** — Chunking Strategies | [`02`](examples/02_chunk_fixed_token.py)–[`14`](examples/14_chunk_dual_index.py), one per section §3.1–§3.13 · then [`15_compare_chunking.py`](examples/15_compare_chunking.py) scores all of them | ○ ◐ ★ |
-| **7** — Baseline RAG Pipeline | [`17_baseline_rag.py`](examples/17_baseline_rag.py) | ▣ |
-| **8** — Context-Aware RAG | [`22_context_aware_rag.py`](examples/22_context_aware_rag.py) | ▣ |
-| **9** — Dynamic RAG | [`23_dynamic_rag.py`](examples/23_dynamic_rag.py) | ▣ |
-| **10** — Hybrid RAG | [`18_sparse_lexical.py`](examples/18_sparse_lexical.py) · [`19_hybrid_fusion.py`](examples/19_hybrid_fusion.py) | ▣ |
-| **11** — Multi-Stage Retrieval | [`20_multistage_rerank.py`](examples/20_multistage_rerank.py) · [`21_late_interaction.py`](examples/21_late_interaction.py) | ▣ ◐ |
-| **12** — Graph-Based RAG | [`25_graph_rag.py`](examples/25_graph_rag.py) | ▣ |
-| **13** — Hierarchical RAG | [`24_hierarchical_rag.py`](examples/24_hierarchical_rag.py) | ▣ |
-| **14** — Agentic RAG | [`27_agentic_rag.py`](examples/27_agentic_rag.py) | ▣ |
-| **15** — Multi-Agent RAG Systems | [`28_multi_agent_rag.py`](examples/28_multi_agent_rag.py) | ▣ |
-| **16** — Streaming RAG | [`29_streaming_rag.py`](examples/29_streaming_rag.py) | ▣ |
+| **3** — Reference Architecture | [`16_index_pgvector.py`](examples/16_index_pgvector.py) · [`38_reference_architecture.py`](examples/38_reference_architecture.py) | ▣ |
+| **4** — Data Extraction | [`01_extract_pdf.py`](examples/01_extract_pdf.py) | ○ |
+| **5** — Chunking Strategies | [`02_chunk_fixed_token.py`](examples/02_chunk_fixed_token.py) · [`03_chunk_sentence.py`](examples/03_chunk_sentence.py) · [`04_chunk_paragraph.py`](examples/04_chunk_paragraph.py) · [`05_chunk_heading.py`](examples/05_chunk_heading.py) · [`06_chunk_semantic.py`](examples/06_chunk_semantic.py) · [`07_chunk_sentence_window.py`](examples/07_chunk_sentence_window.py) · [`08_chunk_parent_child.py`](examples/08_chunk_parent_child.py) · [`09_chunk_contextual_header.py`](examples/09_chunk_contextual_header.py) · [`10_chunk_context_buffered.py`](examples/10_chunk_context_buffered.py) · [`11_chunk_question_derived.py`](examples/11_chunk_question_derived.py) · [`12_chunk_question_anchored.py`](examples/12_chunk_question_anchored.py) · [`13_chunk_qa_context_buffered.py`](examples/13_chunk_qa_context_buffered.py) · [`14_chunk_dual_index.py`](examples/14_chunk_dual_index.py) · [`15_compare_chunking.py`](examples/15_compare_chunking.py) | ○ ◐ ★ |
+| **6** — Baseline RAG Pipeline | [`17_baseline_rag.py`](examples/17_baseline_rag.py) | ▣ ★ |
+| **7** — Context-Aware RAG | [`22_context_aware_rag.py`](examples/22_context_aware_rag.py) | ▣ ★ |
+| **8** — Dynamic RAG | [`23_dynamic_rag.py`](examples/23_dynamic_rag.py) | ▣ ★ |
+| **9** — Hybrid RAG | [`18_sparse_lexical.py`](examples/18_sparse_lexical.py) · [`19_hybrid_fusion.py`](examples/19_hybrid_fusion.py) | ▣ |
+| **10** — Multi-Stage Retrieval | [`20_multistage_rerank.py`](examples/20_multistage_rerank.py) · [`21_late_interaction.py`](examples/21_late_interaction.py) | ▣ ◐ |
+| **11** — Graph-Based RAG | [`25_graph_rag.py`](examples/25_graph_rag.py) | ▣ |
+| **12** — Hierarchical RAG | [`24_hierarchical_rag.py`](examples/24_hierarchical_rag.py) | ▣ |
+| **13** — Agentic RAG | [`27_agentic_rag.py`](examples/27_agentic_rag.py) | ▣ ★ |
+| **14** — Multi-Agent RAG Systems | [`28_multi_agent_rag.py`](examples/28_multi_agent_rag.py) | ▣ ★ |
+| **15** — Streaming RAG | [`29_streaming_rag.py`](examples/29_streaming_rag.py) | ▣ |
 | **17** — Memory-Augmented RAG | [`30_memory_rag.py`](examples/30_memory_rag.py) | ▣ |
-| **18** — Knowledge Graph Integration | [`26_knowledge_graph_rag.py`](examples/26_knowledge_graph_rag.py) | ▣ |
-| **19** — Evaluation Metrics | [`31_retrieval_metrics.py`](examples/31_retrieval_metrics.py) · [`32_generation_metrics.py`](examples/32_generation_metrics.py) | ▣ ○ |
-| **20** — Synthetic Data Generation | [`33_synthetic_eval_data.py`](examples/33_synthetic_eval_data.py) | ▣ |
+| **18** — Knowledge Graph Integration | [`26_knowledge_graph_rag.py`](examples/26_knowledge_graph_rag.py) | ▣ ★ |
+| **19** — Evaluation Metrics | [`31_retrieval_metrics.py`](examples/31_retrieval_metrics.py) · [`32_generation_metrics.py`](examples/32_generation_metrics.py) | ▣ ▣ ★ |
+| **20** — Synthetic Data Generation | [`33_synthetic_eval_data.py`](examples/33_synthetic_eval_data.py) | ★ |
 | **21** — Domain-Specific Fine-Tuning | [`34_finetuning_data_prep.py`](examples/34_finetuning_data_prep.py) | ▣ |
-| **22** — Privacy & Compliance | [`35_privacy_acl.py`](examples/35_privacy_acl.py) | ▣ |
+| **22** — Privacy & Compliance in RAG | [`35_privacy_acl.py`](examples/35_privacy_acl.py) | ▣ |
 | **23** — Real-Time Evaluation & Monitoring | [`36_monitoring.py`](examples/36_monitoring.py) | ▣ |
 | **24** — Human-in-the-Loop RAG | [`37_human_in_the_loop.py`](examples/37_human_in_the_loop.py) | ▣ |
+<!-- book-index:end -->
 
 Chapters **1–3**, **25** and **26** — the author, the history of RAG, the foundations, the
 Twig product chapter and the conclusion — are narrative and have no script.
@@ -267,7 +284,7 @@ Twig product chapter and the conclusion — are narrative and have no script.
 
 It was chosen for reasons that matter to the examples:
 
-- **Real nested structure.** The book's Chapter 13 describes a
+- **Real nested structure.** The book's Hierarchical RAG chapter describes a
   `Topic → Doc → Section → Sentence` hierarchy. This corpus has one, so hierarchical and
   parent-child chunking operate on the document's own boundaries rather than on clusters
   invented by k-means.
@@ -352,7 +369,7 @@ example number — for the reverse lookup, see [index by book chapter](#index-by
 
 | # | Script | Book | Needs |
 |---|---|---|---|
-| 01 | [`01_extract_pdf.py`](examples/01_extract_pdf.py) — reading order, page furniture, normalisation, dedup | Ch 5 | ○ |
+| 01 | [`01_extract_pdf.py`](examples/01_extract_pdf.py) — reading order, page furniture, normalisation, dedup | Data Extraction | ○ |
 | 02 | [`02_chunk_fixed_token.py`](examples/02_chunk_fixed_token.py) | §3.1 | ○ |
 | 03 | [`03_chunk_sentence.py`](examples/03_chunk_sentence.py) | §3.2 | ○ |
 | 04 | [`04_chunk_paragraph.py`](examples/04_chunk_paragraph.py) | §3.3 | ○ |
@@ -366,40 +383,40 @@ example number — for the reverse lookup, see [index by book chapter](#index-by
 | 12 | [`12_chunk_question_anchored.py`](examples/12_chunk_question_anchored.py) | §3.11 | ★ |
 | 13 | [`13_chunk_qa_context_buffered.py`](examples/13_chunk_qa_context_buffered.py) — the canonical chunk | §3.12 | ★ |
 | 14 | [`14_chunk_dual_index.py`](examples/14_chunk_dual_index.py) | §3.13 | ★ |
-| 15 | [`15_compare_chunking.py`](examples/15_compare_chunking.py) — **all of them, scored** | Ch 6 | ◐ |
+| 15 | [`15_compare_chunking.py`](examples/15_compare_chunking.py) — **all of them, scored** | Chunking Strategies | ◐ |
 
 ### Indexing and retrieval
 
 | # | Script | Book | Needs |
 |---|---|---|---|
-| 16 | [`16_index_pgvector.py`](examples/16_index_pgvector.py) — HNSW vs IVFFlat vs no index, measured | Ch 4 | ▣ |
-| 17 | [`17_baseline_rag.py`](examples/17_baseline_rag.py) — the five-step pipeline | Ch 7 | ▣ |
-| 18 | [`18_sparse_lexical.py`](examples/18_sparse_lexical.py) — and why `ts_rank` is not BM25 | Ch 10 | ▣ |
-| 19 | [`19_hybrid_fusion.py`](examples/19_hybrid_fusion.py) — **linear vs RRF, in SQL** | Ch 10 | ▣ |
-| 20 | [`20_multistage_rerank.py`](examples/20_multistage_rerank.py) — cross-encoder + MMR | Ch 11 | ▣ ◐ |
-| 21 | [`21_late_interaction.py`](examples/21_late_interaction.py) — ColBERT-style MaxSim | Ch 11 | ▣ ◐ |
-| 22 | [`22_context_aware_rag.py`](examples/22_context_aware_rag.py) — conversational query rewriting | Ch 8 | ▣ |
-| 23 | [`23_dynamic_rag.py`](examples/23_dynamic_rag.py) — adaptive k, confidence gating | Ch 9 | ▣ |
-| 24 | [`24_hierarchical_rag.py`](examples/24_hierarchical_rag.py) — coarse to fine | Ch 13 | ▣ |
-| 25 | [`25_graph_rag.py`](examples/25_graph_rag.py) — k-hop traversal in a recursive CTE | Ch 12 | ▣ |
-| 26 | [`26_knowledge_graph_rag.py`](examples/26_knowledge_graph_rag.py) — typed triples, three fusion modes | Ch 18 | ▣ |
-| 27 | [`27_agentic_rag.py`](examples/27_agentic_rag.py) — plan, retrieve, criticise, repeat | Ch 14 | ▣ |
-| 28 | [`28_multi_agent_rag.py`](examples/28_multi_agent_rag.py) — parallel agents, blackboard, budgets | Ch 15 | ▣ |
-| 29 | [`29_streaming_rag.py`](examples/29_streaming_rag.py) — upserts, TTL, recency prior | Ch 16 | ▣ |
-| 30 | [`30_memory_rag.py`](examples/30_memory_rag.py) — short-term buffer + long-term store | Ch 17 | ▣ |
+| 16 | [`16_index_pgvector.py`](examples/16_index_pgvector.py) — HNSW vs IVFFlat vs no index, measured | Reference Architecture (block 3, Indexing) | ▣ |
+| 17 | [`17_baseline_rag.py`](examples/17_baseline_rag.py) — the five-step pipeline | Baseline RAG Pipeline | ▣ |
+| 18 | [`18_sparse_lexical.py`](examples/18_sparse_lexical.py) — and why `ts_rank` is not BM25 | Hybrid RAG | ▣ |
+| 19 | [`19_hybrid_fusion.py`](examples/19_hybrid_fusion.py) — **linear vs RRF, in SQL** | Hybrid RAG | ▣ |
+| 20 | [`20_multistage_rerank.py`](examples/20_multistage_rerank.py) — cross-encoder + MMR | Multi-Stage Retrieval | ▣ ◐ |
+| 21 | [`21_late_interaction.py`](examples/21_late_interaction.py) — ColBERT-style MaxSim | Multi-Stage Retrieval | ▣ ◐ |
+| 22 | [`22_context_aware_rag.py`](examples/22_context_aware_rag.py) — conversational query rewriting | Context-Aware RAG | ▣ |
+| 23 | [`23_dynamic_rag.py`](examples/23_dynamic_rag.py) — adaptive k, confidence gating | Dynamic RAG | ▣ |
+| 24 | [`24_hierarchical_rag.py`](examples/24_hierarchical_rag.py) — coarse to fine | Hierarchical RAG | ▣ |
+| 25 | [`25_graph_rag.py`](examples/25_graph_rag.py) — k-hop traversal in a recursive CTE | Graph-Based RAG | ▣ |
+| 26 | [`26_knowledge_graph_rag.py`](examples/26_knowledge_graph_rag.py) — typed triples, three fusion modes | Knowledge Graph Integration | ▣ |
+| 27 | [`27_agentic_rag.py`](examples/27_agentic_rag.py) — plan, retrieve, criticise, repeat | Agentic RAG | ▣ |
+| 28 | [`28_multi_agent_rag.py`](examples/28_multi_agent_rag.py) — parallel agents, blackboard, budgets | Multi-Agent RAG Systems | ▣ |
+| 29 | [`29_streaming_rag.py`](examples/29_streaming_rag.py) — upserts, TTL, recency prior | Streaming RAG | ▣ |
+| 30 | [`30_memory_rag.py`](examples/30_memory_rag.py) — short-term buffer + long-term store | Memory-Augmented RAG | ▣ |
 
 ### Evaluation and operations
 
 | # | Script | Book | Needs |
 |---|---|---|---|
-| 31 | [`31_retrieval_metrics.py`](examples/31_retrieval_metrics.py) — Recall@k, MRR, NDCG from scratch | Ch 19 | ▣ |
-| 32 | [`32_generation_metrics.py`](examples/32_generation_metrics.py) — BLEU, ROUGE, groundedness | Ch 19 | ○ |
-| 33 | [`33_synthetic_eval_data.py`](examples/33_synthetic_eval_data.py) — generation **and filtering** | Ch 20 | ▣ |
-| 34 | [`34_finetuning_data_prep.py`](examples/34_finetuning_data_prep.py) — hard negative mining | Ch 21 | ▣ |
-| 35 | [`35_privacy_acl.py`](examples/35_privacy_acl.py) — **RLS, redaction, cascading deletion** | Ch 22 | ▣ |
-| 36 | [`36_monitoring.py`](examples/36_monitoring.py) — grounding rate, drift, the 15% alert | Ch 23 | ▣ |
-| 37 | [`37_human_in_the_loop.py`](examples/37_human_in_the_loop.py) — uncertainty sampling | Ch 24 | ▣ |
-| 38 | [`38_reference_architecture.py`](examples/38_reference_architecture.py) — **failure attribution** | Ch 4 | ▣ |
+| 31 | [`31_retrieval_metrics.py`](examples/31_retrieval_metrics.py) — Recall@k, MRR, NDCG from scratch | Evaluation Metrics | ▣ |
+| 32 | [`32_generation_metrics.py`](examples/32_generation_metrics.py) — BLEU, ROUGE, groundedness | Evaluation Metrics | ○ |
+| 33 | [`33_synthetic_eval_data.py`](examples/33_synthetic_eval_data.py) — generation **and filtering** | Synthetic Data Generation | ▣ |
+| 34 | [`34_finetuning_data_prep.py`](examples/34_finetuning_data_prep.py) — hard negative mining | Domain-Specific Fine-Tuning | ▣ |
+| 35 | [`35_privacy_acl.py`](examples/35_privacy_acl.py) — **RLS, redaction, cascading deletion** | Privacy & Compliance in RAG | ▣ |
+| 36 | [`36_monitoring.py`](examples/36_monitoring.py) — grounding rate, drift, the 15% alert | Real-Time Evaluation & Monitoring | ▣ |
+| 37 | [`37_human_in_the_loop.py`](examples/37_human_in_the_loop.py) — uncertainty sampling | Human-in-the-Loop RAG Systems | ▣ |
+| 38 | [`38_reference_architecture.py`](examples/38_reference_architecture.py) — **failure attribution** | Reference Architecture | ▣ |
 
 Most examples take arguments — `--help` works on 36 of the 38. The common shape is a
 positional query plus `--k` and `--strategy`:
@@ -575,4 +592,13 @@ trademark or licence restriction.
 
 Companion to **[Retrieval-Augmented Generation: The Definitive Guide](https://www.amazon.com/dp/B0HFH2JNMK)**
 by Chandan Maruthi — *Technical Foundations, Architectures, and Future Directions*,
-second edition, published by Twig AI.
+Revised and Expanded Third Edition, published by Twig AI.
+
+<div align="center">
+<br>
+
+**[Get the book on Amazon →](https://www.amazon.com/dp/B0HFH2JNMK)**
+
+<sub>If the code here saved you time, the book is where the reasoning behind it lives.</sub>
+
+</div>

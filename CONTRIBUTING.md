@@ -78,6 +78,34 @@ corpus-specific — a correction is a contribution, not a complaint.
 
 ---
 
+## Code that appears in the book
+
+Some regions of this repo are printed verbatim in *RAG: The Definitive Guide*. They are
+marked in place:
+
+```sql
+-- --- both arms, keyed by rank rather than score ------------ book:ch14-rrf
+fused AS (
+    SELECT chunk_id, v.vec_score, t.ts_score, v.vec_rank, t.txt_rank
+    FROM   vec v FULL OUTER JOIN txt t USING (chunk_id)
+)
+-- ------------------------------------------------------------------ /book
+```
+
+Two consequences if you edit code inside a marked region:
+
+- **Lines are capped at 76 columns.** That is the printed measure, and a book cannot
+  scroll sideways. `make book-check` tells you which line and by how much.
+- **Changing the code changes the book.** CI fails the PR, on purpose. That is not a veto
+  — if the code should change, change it and say so in the PR. The book's manifest is
+  regenerated from your branch; it is a handoff, not an argument.
+
+Run `make book-check` before opening a PR that touches a marked file. It needs no
+dependencies.
+
+Moving a marked region within its file is fine; the tooling regenerates the printed line
+anchor. Deleting a marker is not — the book would still be quoting it.
+
 ## Running the tests
 
 There is no unit test suite. The smoke test is the test:

@@ -2,7 +2,6 @@
 """
 32. Generation Metrics
 Book: Chapter 19, Evaluation Metrics
-
 WHAT THIS SHOWS: Measuring the answer rather than the retrieval, and why the
 classic text-overlap metrics are close to useless for RAG.
 

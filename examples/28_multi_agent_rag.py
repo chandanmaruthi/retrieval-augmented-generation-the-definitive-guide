@@ -1,8 +1,7 @@
 #!/usr/bin/env python3
 """
 28. Multi-Agent RAG
-Book: Chapter 15, Multi-Agent RAG Systems
-
+Book: Chapter 14, Multi-Agent RAG Systems
 WHAT THIS SHOWS: Several specialised retrievers working in parallel against a
 shared blackboard, with a critic and explicit per-agent budgets.
 
@@ -145,7 +144,7 @@ def main() -> int:
 
     display.banner(
         "28. Multi-Agent RAG",
-        "Chapter 15, Multi-Agent RAG Systems",
+        "Chapter 14, Multi-Agent RAG Systems",
         "Parallel retrievers over different indexes, a shared blackboard, "
         "enforced budgets and a critic gate.",
     )
@@ -203,6 +202,7 @@ def main() -> int:
             own_conn.close()
 
     started = time.perf_counter()
+    # --- agents run in parallel, under one budget - book:retrieval-multi-agent
     with ThreadPoolExecutor(max_workers=3) as pool:
         futures = {pool.submit(run_agent, name): name
                    for name in ("dense", "lexical", "graph")}
@@ -211,6 +211,7 @@ def main() -> int:
             try:
                 name, hits, elapsed = future.result()
                 board.post(name, hits, elapsed)
+    # ------------------------------------------------------------- /book
             except Exception as error:  # noqa: BLE001
                 # One agent failing must not take the answer with it. A
                 # degraded result beats no result.

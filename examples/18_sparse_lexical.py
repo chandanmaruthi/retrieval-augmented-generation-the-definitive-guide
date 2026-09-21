@@ -1,8 +1,7 @@
 #!/usr/bin/env python3
 """
 18. Sparse Lexical Retrieval (and why it is not BM25)
-Book: Chapter 10, Hybrid RAG
-
+Book: Chapter 9, Hybrid RAG
 WHAT THIS SHOWS: The other half of hybrid retrieval. Dense vectors match
 meaning; sparse lexical matching matches words. Each finds things the other
 cannot.
@@ -142,7 +141,7 @@ def main() -> int:
 
     display.banner(
         "18. Sparse Lexical Retrieval",
-        "Chapter 10, Hybrid RAG",
+        "Chapter 9, Hybrid RAG",
         "Word matching rather than meaning matching -- and the difference "
         "between what Postgres gives you and what BM25 actually is.",
     )
