@@ -1,8 +1,7 @@
 #!/usr/bin/env python3
 """
 06. Semantic-Boundary Chunking
-Book: Chapter 6, Chunking Strategies -- section 3.5
-
+Book: Chapter 5, Chunking Strategies -- section 3.5
 WHAT THIS SHOWS: Let the embedding model decide where the topic changes.
 Embed every sentence, measure the similarity between each adjacent pair, and
 cut where that similarity falls off a cliff.
@@ -166,10 +165,12 @@ def chunk_semantic(
             # is already big enough to stand alone. Without the size
             # floor, dialogue produces a long tail of one-line chunks
             # wherever the subject changes twice in a row.
+            # --- cut on a topic shift, or on the size cap -- book:chunk-semantic
             topic_shift = similarity < threshold and budget >= min_tokens
             over_budget = budget >= max_tokens
 
             if topic_shift or over_budget:
+            # ----------------------------------------------------------- /book
                 chunks.append(
                     emit(buffer, index, "topic_shift" if topic_shift else "max_tokens")
                 )
@@ -200,7 +201,7 @@ def main() -> int:
 
     display.banner(
         "06. Semantic-Boundary Chunking",
-        "Chapter 6, Chunking Strategies -- section 3.5",
+        "Chapter 5, Chunking Strategies -- section 3.5",
         "Embed every sentence, then cut where adjacent sentences stop "
         "resembling each other.",
     )

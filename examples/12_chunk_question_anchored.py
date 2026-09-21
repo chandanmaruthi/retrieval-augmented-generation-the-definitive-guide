@@ -1,8 +1,7 @@
 #!/usr/bin/env python3
 """
 12. Question-Anchored Chunking
-Book: Chapter 6, Chunking Strategies -- section 3.11
-
+Book: Chapter 5, Chunking Strategies -- section 3.11
 WHAT THIS SHOWS: Questions decide where the boundaries go.
 
 Example 11 generated questions *from* chunks that already existed. This
@@ -168,10 +167,12 @@ def chunk_question_anchored(book: Book, limit: int | None = None) -> list[Chunk]
         # The chunk boundary is a sentence range the MODEL chose, because
         # that range is what its question needs in order to be answerable.
         # Not a token count, not a similarity threshold, not a paragraph.
+        # --- the model chose this boundary -- book:chunk-question-anchored
         for index, anchor in enumerate(anchors):
             body = " ".join(sentences[anchor["start"] - 1 : anchor["end"]])
             if not body.strip():
                 continue
+        # ------------------------------------------------------------- /book
             chunks.append(
                 Chunk(
                     text=body,
@@ -181,7 +182,9 @@ def chunk_question_anchored(book: Book, limit: int | None = None) -> list[Chunk]
                     index=index,
                     # The anchor question is stored as metadata AND used as an
                     # additional retrieval key -- the book keeps both.
+                    # --- ...continued --------- book:chunk-question-anchored
                     retrieval_text=f"{anchor['question']} {body}".strip(),
+                    # --------------------------------------------- /book
                     meta={
                         "anchor_question": anchor["question"],
                         "sentence_range": [anchor["start"], anchor["end"]],
@@ -242,7 +245,7 @@ def main() -> int:
 
     display.banner(
         "12. Question-Anchored Chunking",
-        "Chapter 6, Chunking Strategies -- section 3.11",
+        "Chapter 5, Chunking Strategies -- section 3.11",
         "Ask what questions a section answers, then cut it so each chunk "
         "answers one of them completely.",
     )

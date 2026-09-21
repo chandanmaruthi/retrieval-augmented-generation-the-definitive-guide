@@ -1,8 +1,7 @@
 #!/usr/bin/env python3
 """
 02. Fixed-Length Token Chunking
-Book: Chapter 6, Chunking Strategies -- section 3.1
-
+Book: Chapter 5, Chunking Strategies -- section 3.1
 WHAT THIS SHOWS: The simplest strategy, and the baseline every other one is
 measured against. Cut the text every N tokens, with M tokens of overlap so a
 fact sitting on a boundary appears whole in at least one chunk.
@@ -74,9 +73,11 @@ def chunk_fixed_token(
     # `size` and `overlap` are budgets in *tokens*, but we slice the units that
     # tokens.encode() returns. Those are the same thing under a real tokenizer
     # and not the same thing under the fallback, so convert explicitly.
+    # --- stride = window minus overlap ------------- book:chunk-fixed-token
     window_units = tokens.units_for_tokens(size)
     overlap_units = tokens.units_for_tokens(overlap)
     step = window_units - overlap_units
+    # ------------------------------------------------------------- /book
 
     chunks: list[Chunk] = []
 
@@ -86,11 +87,13 @@ def chunk_fixed_token(
     # this is cheap and why it cuts sentences in half.
     # =================================================================
 
+    # --- ...continued ------------------------------ book:chunk-fixed-token
     for story in book.stories:
         token_ids = tokens.encode(story.text)
         index = 0
         for start in range(0, len(token_ids), step):
             window = token_ids[start : start + window_units]
+    # ------------------------------------------------------------- /book
             if not window:
                 break
             # Skip a final sliver that is entirely contained in the previous
@@ -124,7 +127,7 @@ def main() -> int:
 
     display.banner(
         "02. Fixed-Length Token Chunking",
-        "Chapter 6, Chunking Strategies -- section 3.1",
+        "Chapter 5, Chunking Strategies -- section 3.1",
         f"Cut every {args.size} tokens with {args.overlap} tokens of overlap. "
         "No regard for sentences, paragraphs or meaning.",
     )

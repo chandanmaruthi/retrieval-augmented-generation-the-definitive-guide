@@ -1,8 +1,7 @@
 #!/usr/bin/env python3
 """
 38. The Reference Architecture, End to End
-Book: Chapter 4, Reference Architecture
-
+Book: Chapter 3, Reference Architecture
 WHAT THIS SHOWS: All six blocks of the book's architecture in one run, with
 the diagnostic the chapter is really about.
 
@@ -112,7 +111,7 @@ def main() -> int:
 
     display.banner(
         "38. The Reference Architecture, End to End",
-        "Chapter 4, Reference Architecture",
+        "Chapter 3, Reference Architecture",
         "All six blocks in one run, then every failure attributed to the "
         "block responsible for it.",
     )

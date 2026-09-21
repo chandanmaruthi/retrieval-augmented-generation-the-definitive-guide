@@ -1,8 +1,7 @@
 #!/usr/bin/env python3
 """
 25. Graph-Based RAG (entities, edges, and k-hop traversal in SQL)
-Book: Chapter 12, Graph-Based RAG
-
+Book: Chapter 11, Graph-Based RAG
 WHAT THIS SHOWS: Retrieval that follows relationships instead of similarity.
 
 Vector search answers "what text resembles this query". A graph answers "what
@@ -193,11 +192,13 @@ WITH RECURSIVE walk AS (
            e.weight,
            e.evidence_chunk_id,
            w.depth + 1,
+-- --- the recursive step: one more hop ---- book:retrieval-graph
            w.path || e.dst_id,
            w.path_weight + e.weight
     FROM   walk w
     JOIN   edges e ON e.src_id = w.dst_id
     WHERE  w.depth < %(max_depth)s
+-- ------------------------------------------------------- /book
       -- ---- THE KEY LINE -------------------------------------------
       -- The cycle guard. Edges are inserted both ways, so A->B->A is a
       -- valid walk and the recursion would follow it until the server
@@ -228,7 +229,7 @@ def main() -> int:
 
     display.banner(
         "25. Graph-Based RAG",
-        "Chapter 12, Graph-Based RAG",
+        "Chapter 11, Graph-Based RAG",
         "Extract entities, connect them, then traverse k hops in SQL to find "
         "evidence that similarity search would never reach.",
     )

@@ -1,8 +1,7 @@
 #!/usr/bin/env python3
 """
 14. Dual-Index Question-Referenced Chunking
-Book: Chapter 6, Chunking Strategies -- section 3.13
-
+Book: Chapter 5, Chunking Strategies -- section 3.13
 WHAT THIS SHOWS: Keep two indexes instead of one compromise.
 
     question index   short generated questions -> chunk id
@@ -106,10 +105,12 @@ def fuse(
     # fusing. Skip this and a chunk with four matching questions
     # accumulates four RRF contributions and wins on multiplicity rather
     # than on relevance -- which looks like a great result and is not.
+    # --- collapse the question arm to one entry -- book:chunk-dual-index
     best_question_rank: dict[int, int] = {}
     for rank, (chunk_id, _) in enumerate(question_ranking, start=1):
         if chunk_id not in best_question_rank:
             best_question_rank[chunk_id] = rank
+    # ------------------------------------------------------------- /book
 
     passage_rank = {chunk_id: rank for rank, (chunk_id, _) in enumerate(passage_ranking, start=1)}
 
@@ -123,11 +124,13 @@ def fuse(
         # normalisation despite being measured on different things.
         #
         # A chunk missing from an arm contributes exactly 0 for it.
+        # --- ...continued ------------------------------ book:chunk-dual-index
         score = 0.0
         if p_rank:
             score += 1.0 / (RRF_K + p_rank)
         if q_rank:
             score += 1.0 / (RRF_K + q_rank)
+        # ------------------------------------------------------------- /book
         scored[chunk_id] = {
             "chunk_id": chunk_id,
             "score": score,
@@ -171,7 +174,7 @@ def main() -> int:
 
     display.banner(
         "14. Dual-Index Question-Referenced Chunking",
-        "Chapter 6, Chunking Strategies -- section 3.13",
+        "Chapter 5, Chunking Strategies -- section 3.13",
         "Two indexes, one corpus: generated questions and the passages "
         "themselves, fused at query time by reciprocal rank.",
     )

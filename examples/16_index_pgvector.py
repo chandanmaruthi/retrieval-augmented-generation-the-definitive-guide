@@ -1,8 +1,7 @@
 #!/usr/bin/env python3
 """
 16. Indexing: HNSW, IVFFlat, and When Not to Index at All
-Book: Chapter 4, Reference Architecture (block 3, Indexing)
-
+Book: Chapter 3, Reference Architecture (block 3, Indexing)
 WHAT THIS SHOWS: Approximate nearest-neighbour indexes are not free and are
 not always faster. This example builds them on the real corpus and measures
 latency and recall against an exact scan, then reports whichever answer the

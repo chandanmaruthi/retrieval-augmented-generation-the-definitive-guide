@@ -1,8 +1,7 @@
 #!/usr/bin/env python3
 """
 27. Agentic RAG
-Book: Chapter 14, Agentic RAG
-
+Book: Chapter 13, Agentic RAG
 WHAT THIS SHOWS: Retrieval as a loop instead of a step.
 
     plan      break the question into sub-questions
@@ -131,7 +130,7 @@ def main() -> int:
 
     display.banner(
         "27. Agentic RAG",
-        "Chapter 14, Agentic RAG",
+        "Chapter 13, Agentic RAG",
         "Plan, retrieve, criticise, re-retrieve. A bounded loop instead of a "
         "single shot.",
     )
@@ -178,11 +177,13 @@ def main() -> int:
     # --- planning ---------------------------------------------------------
     display.heading("Step 1: plan")
     if have_model:
+        # --- the model decides the sub-questions -- book:retrieval-agentic
         plan = llm.complete_json(
             PLANNER_PROMPT.format(question=args.question),
             system=PLANNER_SYSTEM,
             purpose="query planning",
         )
+        # ------------------------------------------------------------- /book
         sub_questions = [
             s for s in plan.get("sub_questions", []) if isinstance(s, str) and s.strip()
         ]

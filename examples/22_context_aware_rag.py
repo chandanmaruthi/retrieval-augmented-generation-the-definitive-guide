@@ -1,8 +1,7 @@
 #!/usr/bin/env python3
 """
 22. Context-Aware RAG (query rewriting over dialogue history)
-Book: Chapter 8, Context-Aware RAG
-
+Book: Chapter 7, Context-Aware RAG
 WHAT THIS SHOWS: The single highest-value fix for conversational RAG.
 
 A follow-up question is almost never self-contained:
@@ -91,6 +90,7 @@ the conversation. Do not answer it."""
 
 def rewrite(history: list[tuple[str, str]], question: str) -> str:
     """Compress the dialogue into one standalone question."""
+    # --- history in, standalone question out -- book:retrieval-context-aware
     rendered = "\n".join(f"Q: {q}\nA: {a}" for q, a in history) or "(none)"
     return llm.complete(
         PROMPT.format(history=rendered, question=question),
@@ -99,6 +99,7 @@ def rewrite(history: list[tuple[str, str]], question: str) -> str:
         max_tokens=120,
         purpose="conversational query rewriting",
     ).strip().strip('"')
+    # ------------------------------------------------------------- /book
 
 
 def main() -> int:
@@ -109,7 +110,7 @@ def main() -> int:
 
     display.banner(
         "22. Context-Aware RAG",
-        "Chapter 8, Context-Aware RAG",
+        "Chapter 7, Context-Aware RAG",
         "Rewrite each follow-up into a standalone question before retrieving, "
         "so pronouns stop destroying recall.",
     )

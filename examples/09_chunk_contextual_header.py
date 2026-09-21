@@ -1,8 +1,7 @@
 #!/usr/bin/env python3
 """
 09. Contextual-Header Augmented Chunking
-Book: Chapter 6, Chunking Strategies -- section 3.8
-
+Book: Chapter 5, Chunking Strategies -- section 3.8
 WHAT THIS SHOWS: Prepend the heading path to the chunk before embedding it, so
 the vector knows which document the text came from.
 
@@ -90,9 +89,11 @@ def chunk_with_headers(book: Book) -> list[Chunk]:
         # Note this writes retrieval_text, NOT text. Put the header in
         # `text` and it gets quoted back to the user as though Conan
         # Doyle wrote it, and it eats context budget in every answer.
+        # --- the chunk carries its own location -- book:chunk-contextual-header
         chunk.retrieval_text = f"From '{path}'. {chunk.text}"
         chunk.strategy = STRATEGY
         chunk.meta["header"] = path
+        # ----------------------------------------------------------- /book
         chunk.meta["header_tokens"] = tokens.count_tokens(f"From '{path}'. ")
 
     return chunks
@@ -101,7 +102,7 @@ def chunk_with_headers(book: Book) -> list[Chunk]:
 def main() -> int:
     display.banner(
         "09. Contextual-Header Augmented Chunking",
-        "Chapter 6, Chunking Strategies -- section 3.8",
+        "Chapter 5, Chunking Strategies -- section 3.8",
         "Embed the heading path along with the chunk, so a passage that never "
         "names its own document still retrieves as part of it.",
     )

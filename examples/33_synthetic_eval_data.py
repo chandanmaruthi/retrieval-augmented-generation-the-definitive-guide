@@ -2,7 +2,6 @@
 """
 33. Synthetic Data Generation for Evaluation
 Book: Chapter 20, Synthetic Data Generation
-
 WHAT THIS SHOWS: Generating question-answer-context triples so you have an
 evaluation set at all, and the filtering that decides whether it is worth
 having.

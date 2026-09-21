@@ -1,8 +1,7 @@
 #!/usr/bin/env python3
 """
 29. Streaming RAG (incremental updates, freshness, and recency)
-Book: Chapter 16, Streaming RAG
-
+Book: Chapter 15, Streaming RAG
 WHAT THIS SHOWS: What changes when the corpus is not a fixed book.
 
 Four mechanisms, all of them local computation against Postgres:
@@ -115,11 +114,13 @@ def upsert(conn, embedder, source_id: str, body: str, age_hours: float, ttl_hour
     # unchanged records constantly and embedding is the expensive step,
     # so this ordering is the entire cost saving. Reverse it -- embed,
     # then compare -- and you pay full price for every no-op.
+    # --- hash first, embed only if changed --- book:retrieval-streaming
     if existing and existing[0] == content_hash:
         return "unchanged"
 
     observed = datetime.now(timezone.utc) - timedelta(hours=age_hours)
     vector = embedder.encode([body], show_progress=False)[0]
+    # ------------------------------------------------------------- /book
 
     conn.execute(
         """
@@ -181,7 +182,7 @@ def main() -> int:
 
     display.banner(
         "29. Streaming RAG",
-        "Chapter 16, Streaming RAG",
+        "Chapter 15, Streaming RAG",
         "Incremental ingestion, content-hash deduplication, TTL expiry, and "
         "the book's recency prior applied in SQL.",
     )

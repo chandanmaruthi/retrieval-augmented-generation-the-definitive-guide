@@ -2,7 +2,6 @@
 """
 34. Fine-Tuning Data Preparation (hard negatives)
 Book: Chapter 21, Domain-Specific Fine-Tuning
-
 WHAT THIS SHOWS: How to build the training set for a retriever, and why the
 negatives matter far more than the positives.
 

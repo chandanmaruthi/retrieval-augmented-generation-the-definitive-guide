@@ -1,8 +1,7 @@
 #!/usr/bin/env python3
 """
 23. Dynamic RAG (adaptive depth and confidence-driven iteration)
-Book: Chapter 9, Dynamic RAG
-
+Book: Chapter 8, Dynamic RAG
 WHAT THIS SHOWS: Stop using the same k for every question.
 
 The book's numbers: a simple factual lookup needs 2-3 passages; a complex
@@ -99,6 +98,7 @@ def classify(question: str) -> tuple[str, int]:
     # options for this decision -- reinforcement learning, meta-learning,
     # or "rule-based heuristics (query length, named entity count)" --
     # and this is the third, because it costs nothing and is debuggable.
+    # --- difficulty decides retrieval depth ----- book:retrieval-dynamic
     score = markers + clauses + (words > 15) + (entities > 2)
 
     if score >= 3:
@@ -106,6 +106,7 @@ def classify(question: str) -> tuple[str, int]:
     if score >= 1:
         return "moderate", 8
     return "simple factual", 3
+    # ------------------------------------------------------------- /book
 
 
 def retrieval_confidence(hits) -> tuple[float, str]:
@@ -150,7 +151,7 @@ def main() -> int:
 
     display.banner(
         "23. Dynamic RAG",
-        "Chapter 9, Dynamic RAG",
+        "Chapter 8, Dynamic RAG",
         "Choose the retrieval depth per query, then check whether what came "
         "back is good enough before trusting it.",
     )

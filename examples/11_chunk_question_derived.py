@@ -1,8 +1,7 @@
 #!/usr/bin/env python3
 """
 11. Question-Derived Chunking
-Book: Chapter 6, Chunking Strategies -- section 3.10
-
+Book: Chapter 5, Chunking Strategies -- section 3.10
 WHAT THIS SHOWS: Stop embedding the answer and start embedding the question.
 
 For each chunk, have a model write the questions that chunk answers, then use
@@ -119,17 +118,21 @@ def chunk_question_derived(book: Book, limit: int | None = None) -> list[Chunk]:
         # The consequence to remember: several of these can match a single
         # query, so retrieval MUST deduplicate on chunk_key afterwards or
         # one passage fills the entire top-k with itself.
+        # --- one passage becomes N index entries -- book:chunk-question-derived
         for question_index, question in enumerate(questions):
             entries.append(
                 Chunk(
                     # The passage is still what the generator reads.
                     text=chunk.text,
+        # ------------------------------------------------------------- /book
                     strategy=STRATEGY,
                     story=chunk.story,
                     section=chunk.section,
                     index=chunk.index,
+                    # --- ...continued ------------- book:chunk-question-derived
                     # The question is what gets embedded.
                     retrieval_text=question,
+                    # --------------------------------------------------- /book
                     meta={
                         "source_chunk": chunk.index,
                         "chunk_key": f"{chunk.story}#{chunk.section}#{chunk.index}",
@@ -185,7 +188,7 @@ def main() -> int:
 
     display.banner(
         "11. Question-Derived Chunking",
-        "Chapter 6, Chunking Strategies -- section 3.10",
+        "Chapter 5, Chunking Strategies -- section 3.10",
         "Generate the questions each chunk answers, and index those instead of "
         "the chunk. Match question to question, not question to prose.",
     )

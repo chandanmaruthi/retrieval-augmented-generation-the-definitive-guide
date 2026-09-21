@@ -1,8 +1,7 @@
 #!/usr/bin/env python3
 """
 13. Question-Anchored, Context-Buffered Chunking
-Book: Chapter 6, Chunking Strategies -- section 3.12
-
+Book: Chapter 5, Chunking Strategies -- section 3.12
 WHAT THIS SHOWS: The book's canonical chunk. Everything from sections 3.8 to
 3.11 assembled into one unit:
 
@@ -91,6 +90,7 @@ def assemble(chunk: Chunk) -> str:
     if header:
         parts.append(f"From '{header}'.")
 
+    # --- the sandwich: summary, passage, summary ----- book:chunk-qa-buffered
     if chunk.meta.get("pre_summary"):
         parts.append(f"[Previously: {chunk.meta['pre_summary']}]")
 
@@ -98,10 +98,13 @@ def assemble(chunk: Chunk) -> str:
 
     if chunk.meta.get("post_summary"):
         parts.append(f"[Next: {chunk.meta['post_summary']}]")
+    # ------------------------------------------------------------- /book
 
+    # --- ...continued -------------------------------- book:chunk-qa-buffered
     questions = chunk.meta.get("questions") or []
     if questions:
         parts.append("Answers: " + " ".join(questions))
+    # ------------------------------------------------------------- /book
 
     return "\n\n".join(parts)
 
@@ -186,7 +189,7 @@ def main() -> int:
 
     display.banner(
         "13. Question-Anchored, Context-Buffered Chunking",
-        "Chapter 6, Chunking Strategies -- section 3.12",
+        "Chapter 5, Chunking Strategies -- section 3.12",
         "The book's canonical chunk: heading, pre-summary, passage, "
         "post-summary and questions, assembled into one retrieval unit.",
     )

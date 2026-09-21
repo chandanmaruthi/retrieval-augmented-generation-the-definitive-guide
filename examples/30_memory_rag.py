@@ -2,7 +2,6 @@
 """
 30. Memory-Augmented RAG
 Book: Chapter 17, Memory-Augmented RAG
-
 WHAT THIS SHOWS: Two memories, not one.
 
     short-term buffer    the last few turns, verbatim, always included

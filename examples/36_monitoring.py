@@ -2,7 +2,6 @@
 """
 36. Real-Time Evaluation and Monitoring
 Book: Chapter 23, Real-Time Evaluation & Monitoring
-
 WHAT THIS SHOWS: What to log per query, and what the logs can tell you that
 an offline evaluation cannot.
 

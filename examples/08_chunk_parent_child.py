@@ -1,8 +1,7 @@
 #!/usr/bin/env python3
 """
 08. Parent-Child Hierarchical Chunking
-Book: Chapter 6, Chunking Strategies -- section 3.7
-
+Book: Chapter 5, Chunking Strategies -- section 3.7
 WHAT THIS SHOWS: Build two layers. Small child chunks (300-500 tokens) are
 what you search; large parent chunks (1,000-1,500 tokens) are what you read.
 A hit on any child returns its whole parent.
@@ -100,8 +99,10 @@ def chunk_parent_child(
             # child cannot straddle two parents. Same structural trick as
             # example 05: the boundary is guaranteed by the loop nesting,
             # not by a check that could be forgotten.
+            # --- children are built inside a parent ---- book:chunk-parent-child
             for parent_index, body in enumerate(parent_bodies):
                 parent_text = "\n\n".join(body)
+            # ------------------------------------------------------- /book
                 parent_id = len(parents)
                 parents.append(parent_text)
 
@@ -122,10 +123,12 @@ def chunk_parent_child(
                         story=story.title,
                         section=section.number,
                         index=idx,
+                        # --- ...continued ---------- book:chunk-parent-child
                         # Searched on the child...
                         retrieval_text=" ".join(sentence_list),
                         # ...but answered from the parent.
                         parent_text=parent_text,
+                        # --------------------------------------------- /book
                         meta={
                             "parent_id": parent_id,
                             "parent_index": parent_index,
@@ -156,7 +159,7 @@ def main() -> int:
 
     display.banner(
         "08. Parent-Child Hierarchical Chunking",
-        "Chapter 6, Chunking Strategies -- section 3.7",
+        "Chapter 5, Chunking Strategies -- section 3.7",
         f"Search {args.child}-token children; answer from {args.parent}-token "
         "parents. Two layers, one index.",
     )

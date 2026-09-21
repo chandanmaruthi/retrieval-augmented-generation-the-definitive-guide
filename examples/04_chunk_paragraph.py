@@ -1,8 +1,7 @@
 #!/usr/bin/env python3
 """
 04. Paragraph-Boundary Chunking
-Book: Chapter 6, Chunking Strategies -- section 3.3
-
+Book: Chapter 5, Chunking Strategies -- section 3.3
 WHAT THIS SHOWS: Chunk on the boundaries the author already chose. A paragraph
 is a unit of thought that someone deliberately delimited, which makes it a
 better guess at "one idea" than any window we could compute.
@@ -102,11 +101,13 @@ def chunk_paragraphs(
             # A two-word paragraph ('"Indeed!"') embedded alone produces a
             # vector that is weakly similar to everything and specific to
             # nothing -- the "topic dilution" failure in reverse.
+            # --- too small: merge forward ------------- book:chunk-paragraph
             if size < min_tokens:
                 merged = [paragraph]
                 total = size
                 position += 1
                 while position < len(located) and total < min_tokens:
+            # ------------------------------------------------------- /book
                     _, following = located[position]
                     following_size = tokens.count_tokens(following)
                     if total + following_size > max_tokens:
@@ -135,10 +136,12 @@ def chunk_paragraphs(
             # Note the fallback is example 03's sentence packing, NOT
             # example 02's fixed window. Having come this far to respect
             # boundaries, abandoning them at the last step would undo it.
+            # --- ...too big: split by sentence -------- book:chunk-paragraph
             if size > max_tokens:
                 buffer: list[str] = []
                 budget = 0
                 for sentence in split_sentences(paragraph):
+            # ------------------------------------------------------- /book
                     cost = tokens.count_tokens(sentence)
                     if budget + cost > max_tokens and buffer:
                         chunks.append(
@@ -202,7 +205,7 @@ def main() -> int:
 
     display.banner(
         "04. Paragraph-Boundary Chunking",
-        "Chapter 6, Chunking Strategies -- section 3.3",
+        "Chapter 5, Chunking Strategies -- section 3.3",
         "Use the author's own boundaries, then fix up the paragraphs that are "
         "too short or too long to stand alone.",
     )
